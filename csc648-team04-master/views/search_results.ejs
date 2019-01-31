@@ -1,0 +1,64 @@
+<!--
+    VIEW: search_results.ejs
+    Displays the results of a search-by-zipcode from the navbar or from the search bar on this page and the homepage.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/images/logos/logo-black.png">
+
+    <title><%= title %></title>
+
+    <!-- Stylesheets -->
+    <% include templates/stylesheet-refs.ejs %>
+    
+    <!-- Google Analytics snippet -->
+    <% include templates/google-analytics.ejs %>
+</head>
+
+<body>
+
+<header>
+    <!--  BEGIN NAVIGATION BAR -->
+    <% include templates/navigation.ejs %>
+    <!-- END OF NAVIGATION BAR -->
+</header>
+
+
+<main role="main">
+
+    <% if(!locals.isLogged) { %>
+    <!-- Welcome message -->
+        <% include templates/welcome_message.ejs %>
+    <% } %>
+
+    <div class="container">
+        <!-- begin container -->
+        <% include templates/search_bar_template.ejs %>
+
+        <p style="color: white">Showing <b><%=data.length%></b> out of <b><%=data.length%></b> results</p>
+        <% include templates/results.ejs %>
+
+
+        <!-- End container -->
+    </div>
+</main>
+
+<!-- FOOTER code -->
+<% include templates/footer.ejs %>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!-- Script references -->
+<% include templates/javascript-refs.ejs %>
+<script src="/scripts/search_bar_validation.js"></script>
+
+
+</body>
+</html>

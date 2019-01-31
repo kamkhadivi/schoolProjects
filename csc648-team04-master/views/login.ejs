@@ -1,0 +1,90 @@
+<!--
+	VIEW: login.ejs
+	The login page for the website.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width = device-width, initial-scale = 1">
+    <link rel="icon" href="/images/logos/logo-black.png">
+
+
+	<% include templates/stylesheet-refs.ejs %>
+
+
+	<style>
+		.page-footer {
+			margin-top: 100px;
+		}
+	</style>
+
+    <% include templates/google-analytics.ejs %>
+</head>
+
+<body>
+	<!--  BEGIN NAVIGATION BAR -->
+	<% include templates/navigation.ejs %>
+	<!-- END OF NAVIGATION BAR -->
+
+	<div class="container">
+	  <div class="row">
+
+
+          <div class="col-md-4 col-sm-3 col-xs-12"></div>
+
+          <!-- Login form -->
+          <div class="col-md-4 col-sm-6 col-xs-12">
+
+				<form class="form-container" method="post" action="/user/login">
+				  <h1>PARSE Login</h1>
+
+				  <!-- Form validation messages -->
+				  <% if (message.length > 0) { %>
+          	 	  <div class="alert alert-danger">*<%= message %></div>
+          		  <% } %>
+
+          		  <!-- Username -->
+				  <div class="form-group">
+                      <label for="Username">Username</label>
+                      <input type="text" class="form-control" name="username" placeholder="Username" >
+				  </div>
+
+          		  <!-- Password -->
+				  <div class="form-group">
+                      <label for="Password">Password</label>
+                      <input type="password" class="form-control" name="password" placeholder="Password">
+				  </div>
+
+          		  <!-- Remember me checkbox -->
+				  <div class="checkbox">
+				    <label>
+				      <input type="checkbox"> Remember Me
+				    </label>
+				  </div>
+				  <button type="submit" class="btn btn-success btn-block">Submit</button>
+				</form>
+	    </div>
+	  <div class="col-md-4 col-sm-4 col-xs-12"></div>
+	  </div>
+	</div>
+
+	<!-- FOOTER code -->
+	<% include templates/footer.ejs %>
+
+
+	<% include templates/javascript-refs.ejs %>
+
+
+	<!-- Makes the current page appear active in the navbar -->
+	<script type="text/javascript">
+
+	  $(function() {
+	    $("#login-navbar-item").addClass("active");
+	  });
+
+	</script>
+
+</body>
+</html>

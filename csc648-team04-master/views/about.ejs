@@ -1,0 +1,283 @@
+<!--About page -->
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/images/logos/logo-black.png">
+
+    <title><%= title %></title>
+
+    <!-- Stylesheets -->
+    <% include templates/stylesheet-refs.ejs %>
+
+    <!-- Google Analytics snippet -->
+    <% include templates/google-analytics.ejs %>
+  </head>
+
+  <body>
+
+    <header>
+<!--  BEGIN NAVIGATION BAR -->
+<% include templates/navigation.ejs %>
+<!-- END OF NAVIGATION BAR -->
+
+    </header>
+
+    <main role="main">
+
+      <!-- Jumbotron title -->
+      <section class="row jumbo-banner-box text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">CSC 648 - Team 4</h1>
+          <p class="lead text-muted">Meet the Team</p>
+        </div>
+      </section>
+
+      <div class="container">
+
+        <!-- Rodrigo's about block -->
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="about-bar">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="/images/profile_pics/rodrigo.jpeg" alt="placeholder" class="about-pic" />
+                </div>
+                <div class="col-sm-9">
+                  <h3>Rodrigo
+                    <a class="link" href="https://github.com/rodrigobell">
+                      <img class="social-icon" src="http://bogas04.github.io/img/github.svg"/>
+                    </a>
+                    <a class="link" href="https://www.linkedin.com/in/rodrigobell/">
+                      <img class="social-icon" src="http://www.iconninja.com/files/331/775/772/linkedin-website-logo-service-social-web-communication-icon.svg" />
+                    </a>
+                    <a class="link" href="mailto:rbell594@gmail.com" target="_top">
+                      <img class="social-icon" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" />
+                    </a></h3>
+                  <p>
+                    Rodrigo brings experience in his undergrad in CS and from his personal projects in web development. As team lead and git master, he’s helping ensure the project goes smoothly. In his free time, Rodrigo enjoys rock climbing and playing soccer.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charlie's about block -->
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="about-bar">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="/images/profile_pics/charlie.jpg" alt="placeholder" class = "about-pic" id="charlie-pic" />
+                </div>
+                <div class="col-sm-9">
+                  <h3>
+                    Charlie
+                    <a class="link" href="https://github.com/chtu">
+                      <img class="social-icon" src="http://bogas04.github.io/img/github.svg"/>
+                    </a>
+                    <a class="link" href="https://www.linkedin.com/in/charlie-tuttle-54864434/">
+                      <img class="social-icon" src="http://www.iconninja.com/files/331/775/772/linkedin-website-logo-service-social-web-communication-icon.svg" />
+                    </a>
+                    <a class="link" href="mailto:durantisawesome@yahoo.com" target="_top">
+                      <img class="social-icon" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" />
+                    </a>
+                  </h3>
+                  <p>
+                    Charlie is a graduate student of computer science. Outside of school, he likes to work on personal web projects and cook.
+                    <!-- Joke Entry
+                    Charlie Tuttle is a master of software engineering, web design, machine learning, and quantum theory after having trained under the senior faculty at MIT, Harvard, and Mr. Miyagi. After surpassing his mentors and achieving an IQ of 344, he was able to find a solution to the Traveling Salesman Problem and perfect cold fusion within a week, though he disposed of the results due to a fear that others might find his intellect intimidating. He went on to co-found Facebook, Tesla, and Bitcoin, later leaving this life behind to enjoy a nice quiet education in computer science at SFSU.
+                  -->
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rohan's about block -->
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="about-bar">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="/images/profile_pics/rohan.jpg" alt="placeholder" class = "about-pic"/>
+                </div>
+                <div class="col-sm-9">
+                  <h3>
+                    Rohan
+                    <a class="link" href="https://github.com/rohan8594">
+                      <img class="social-icon" src="http://bogas04.github.io/img/github.svg"/>
+                    </a>
+                    <a class="link" href="https://www.linkedin.com/in/rohan8594">
+                      <img class="social-icon" src="http://www.iconninja.com/files/331/775/772/linkedin-website-logo-service-social-web-communication-icon.svg" />
+                    </a>
+                    <a class="link" href="mailto:rohan.8594@gmail.com" target="_top">
+                      <img class="social-icon" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" />
+                    </a>
+                  </h3>
+                  <p>
+                    Rohan is a grad student at SFSU and the back end lead of our team. When he is not studying, coding, sleeping or eating, Rohan likes to watch soccer and ufc fights.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kam's about block -->
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="about-bar">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="/images/profile_pics/kam.png" alt="placeholder" class = "about-pic"/>
+                </div>
+                <div class="col-sm-9">
+                  <h3>
+                    Kamran
+                    <a class="link" href="#">
+                      <img class="social-icon" src="http://bogas04.github.io/img/github.svg"/>
+                    </a>
+                    <a class="link" href="#">
+                      <img class="social-icon" src="http://www.iconninja.com/files/331/775/772/linkedin-website-logo-service-social-web-communication-icon.svg" />
+                    </a>
+                    <a class="link" href="#" target="_top">
+                      <img class="social-icon" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" />
+                    </a>
+                  </h3>
+                  <p>
+                    Kamran is majoring in Computer Science and minoring in Mathematics.  As a member of our front end team, he truly enjoys design with his unique visual aesthetic and strong communicative personality.  Outside of school, you can catch Kamran scuba diving, golfing or playing guitar.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zhenru's about block -->
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="about-bar">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="/images/profile_pics/zhenru.jpg" alt="placeholder" class = "about-pic"/>
+                </div>
+                <div class="col-sm-9">
+                  <h3>
+                    Zhenru
+                    <a class="link" href="#">
+                      <img class="social-icon" src="http://bogas04.github.io/img/github.svg"/>
+                    </a>
+                    <a class="link" href="#">
+                      <img class="social-icon" src="http://www.iconninja.com/files/331/775/772/linkedin-website-logo-service-social-web-communication-icon.svg" />
+                    </a>
+                    <a class="link" href="#" target="_top">
+                      <img class="social-icon" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" />
+                    </a>
+                  </h3>
+                  <p>
+                    Zhenru is an undergraduate student in Computer Science at SFSU. He is the team member of team 4. He will try his best to do his work for his team. In his free time, Zhenru enjoys playing basketball.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dion's about block -->
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="about-bar">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="/images/profile_pics/DionMatthew.jpg" alt="placeholder" class = "about-pic"/>
+                </div>
+                <div class="col-sm-9">
+                  <h3>
+                    Dion
+                    <a class="link" href="https://github.com/DLagos">
+                      <img class="social-icon" src="http://bogas04.github.io/img/github.svg"/>
+                    </a>
+                    <a class="link" href="https://www.linkedin.com/in/dion-matthew-lagos-7ba99711a/">
+                      <img class="social-icon" src="http://www.iconninja.com/files/331/775/772/linkedin-website-logo-service-social-web-communication-icon.svg" />
+                    </a>
+                    <a class="link" href="mailto:dlagos@mail.sfsu.edu" target="_top">
+                      <img class="social-icon" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" />
+                    </a>
+                  </h3>
+                  <p>
+                    Dion is a graduating Senior at SFSU and currently works as a Software Developer at a non-profit organization. Working with the back end team under Rohan, Dion brings industry and Agile methodology experience to the team. He enjoys working on his four cars and playing video games in his free time.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Michael's about block -->
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="about-bar">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="/images/profile_pics/michael.jpg" alt="placeholder" class = "about-pic"/>
+                </div>
+                <div class="col-sm-9">
+                  <h3>
+                    Michael
+                    <a class="link" href="#">
+                      <img class="social-icon" src="http://bogas04.github.io/img/github.svg"/>
+                    </a>
+                    <a class="link" href="#">
+                      <img class="social-icon" src="http://www.iconninja.com/files/331/775/772/linkedin-website-logo-service-social-web-communication-icon.svg" />
+                    </a>
+                    <a class="link" href="#" target="_top">
+                      <img class="social-icon" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" />
+                    </a>
+                  </h3>
+                  <p>
+                    Michael is in his last year a computer science major at SFSU. When he is not working as a part of the front-end development team, he likes to take photos, play video games, and ride his bike in the mountains.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER code -->
+    <% include templates/footer.ejs %>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- Script references -->
+    <% include templates/javascript-refs.ejs %>
+
+
+    <!-- Makes the current page appear active in the navbar -->
+    <script type="text/javascript">
+
+      $(function() {
+        $("#about-navbar-item").addClass("active");
+      });
+
+    </script>
+  </body>
+</html>

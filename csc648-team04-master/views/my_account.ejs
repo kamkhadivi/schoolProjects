@@ -1,0 +1,194 @@
+<!-- 
+    VIEW: my_account.ejs
+    This is the city manager's dashboard page.
+    They can update the status of Pending and Completed issues from here.
+ -->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/images/logos/logo-black.png">
+
+    <title>My Account</title>
+
+
+    <!-- Stylesheets -->
+    <% include templates/stylesheet-refs.ejs %>
+
+    <!-- Google Analytics snippet -->
+    <% include templates/google-analytics.ejs %>
+</head>
+
+<body>
+
+    <header>
+        <!--  BEGIN NAVIGATION BAR -->
+        <% include templates/navigation.ejs %>
+        <!-- END OF NAVIGATION BAR -->
+    </header>
+
+<!-- Main content -->
+    <div class="container">
+
+    <% if(locals.isAdmin){ %>
+        <div class="row">
+
+            <!-- The filter side of the dashboard page -->
+            <div class="col-md-2" id="dashboard-filter">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="title">Filter by:</h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <select id="filter-dropdown">
+                        <option value="2">Pending</option>
+                        <option value="3">Complete</option>
+                        <option>All</option>
+                    </select>
+                </div>
+
+
+            </div>
+
+
+            <!-- The list of issues to update -->
+            <div class="col-md-10" id="dashboard-issues-list">
+
+                <h1 id="pending-issue-title" class="title">Pending Issues</h1>
+                <h1 id="completed-issue-title" class="title">Completed Issues</h1>
+                <h1 id="all-issue-title" class="title">All Issues</h1>
+                <% include templates/account_issues.ejs %>
+
+            </div>
+
+
+        </div>
+        <%} else { %>
+        <!-- The message that appears when the user is not authorized to perform city manager roles. -->
+        <section class="row jumbo-banner-box text-center">
+          <div class="container">
+            <h1 class="jumbotron-heading">Welcome to PARSE!</h1>
+            <p class="lead text-muted">
+                This is PARSE, (Pollution and Accident Reporting for a Safer Environment), your environmental reporting tool for your home and planet.<br>
+                <a href="/">Click here</a> to go back to the homepage.
+            </p>
+          </div>
+        </section>
+        <% } %>
+
+    </div>
+
+    <!-- FOOTER code -->
+    <% include templates/footer.ejs %>
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- Script references -->
+    <% include templates/javascript-refs.ejs %>
+
+    <!--
+        This script controls the appearance of the different issues and allows the user to filter and update the lists dynamically.
+    -->
+    <script type="text/javascript">
+
+        $(function() {
+
+            // Filter code ---------------------------------------
+            $(".completed").hide();
+            $(".pending").show();
+            $("#pending-issue-title").show();
+            $("#completed-issue-title").hide();
+            $("#all-issue-title").hide();
+
+
+            $("#filter-dropdown").on("change", function(e) {
+                if ($(this).val() === "3") {
+                    $(".completed").show();
+                    $(".pending").hide();
+                    $("#completed-issue-title").show();
+                    $("#pending-issue-title").hide();
+                    $("#all-issue-title").hide();
+                } else if ($(this).val() === "2") {
+                    $(".completed").hide();
+                    $(".pending").show();
+                    $("#all-issue-title").hide();
+                    $("#completed-issue-title").hide();
+                    $("#pending-issue-title").show();
+                } else {
+                    $(".completed").show();
+                    $(".pending").show();
+                    $("#all-issue-title").show();
+                    $("#completed-issue-title").hide();
+                    $("#pending-issue-title").hide();
+
+                }
+            });
+
+
+            // Submit code --------------------------------------------
+
+            // Submit Listener for the "form"
+            // This event will update the database with the new issue status.
+            $(".issue-list-item").on("submit", function(e) {
+                e.preventDefault(); // Prevent the page from refreshing
+                var el = $(this).parent().parent();
+
+                // Ajax request will go here to update the database
+                var data = $(this).serialize();
+                data.title = "title";
+                data.message = "message";
+                $.ajax({
+                    type: 'POST',
+                    data: data,
+                    url: '/user/update_status',
+                    success: function() {
+                        var pending = "pending";
+                        var completed = "completed";
+
+                        if (el.hasClass(pending)) {
+                            el.removeClass(pending);
+                            el.addClass(completed);
+                            el.find(".issue-button").html("Set to Pending");
+                        } else if (el.hasClass(completed)) {
+                            el.removeClass(completed);
+                            el.addClass(pending);
+                            el.find(".issue-button").html("Set to Complete");
+                        }
+                        el.hide();
+                    }
+                });
+
+                // Show the data so that we know it's working
+                /*
+                var alertMsg = "DEBUG MESSAGE\nSubmitted the following info:\n";
+                alert(alertMsg + $(this).serialize());
+                */
+
+
+            });
+
+            // causes the form to submit
+            $(".issue-button").on("click", function(e) {
+                $(this).parent().submit(); // The parent form
+            });
+
+            // Makes the current page appear active in the navbar
+            $("#dashboard-navbar-item").addClass("active");
+
+        });
+    </script>
+
+
+
+</body>
+</html>

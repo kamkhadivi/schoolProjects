@@ -1,0 +1,117 @@
+<!--
+  VIEW: display_issue.ejs
+  Displays one specific issue in greater detail.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/images/logos/logo-black.png">
+
+    <title><%=page_title%></title>
+
+    <!-- Stylesheets -->
+    <% include templates/stylesheet-refs.ejs %>
+
+    <!-- Google Analytics snippet -->
+    <% include templates/google-analytics.ejs %>
+</head>
+
+<body>
+
+    <header>
+        <!--  BEGIN NAVIGATION BAR -->
+        <% include templates/navigation.ejs %>
+        <!-- END OF NAVIGATION BAR -->
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <h1><%=data[0].title%></h1>
+      </div>
+        <a href="/" class="btn btn-info" style="margin:30px;">Back to search results</a>
+        <!-- Image pane -->
+        <div class="row">
+            <div class="col-md-6 pane">
+                <!-- <div class="fields">
+                    <h2 class="field-title">Submitted on: </h2>
+                    <p><%=date%></p>
+                </div> -->
+                <img class="issue-info" src=<%=data[0].image%> />
+                <div class="fields">
+
+                </div>
+            </div>
+            <!-- google maps pane -->
+            <div class="col-md-6 pane">
+                <%include templates/google-maps.ejs%>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 pane">
+            <h2 class="field-title">Description:</h2>
+            <p class="descript"><%=data[0].description%></p>
+          </div>
+          <div class="col-md-6 pane">
+            <h2 class="field-title">Details:</h2>
+            <table class="table table-striped table-dark">
+              <thead>
+
+
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Submitted by:</th>
+                  <td><%=data[0].user_name%></td>
+                </tr>
+                <tr>
+                  <th scope="row">Submission date:</th>
+                  <td><%=date%></td>
+                </tr>
+                <tr>
+                  <th scope="row">Location:</th>
+                  <td><%=data[0].address%></td>
+                </tr>
+                <tr>
+                  <th scope="row">Zipcode:</th>
+                  <td><%=data[0].zipcode%></td>
+                </tr>
+                <tr>
+                  <th scope="row">Category:</th>
+                  <td><%=data[0].category_name%></td>
+                </tr>
+                <tr>
+                  <th scope="row">Status:</th>
+                  <td><%=data[0].status%></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+
+
+<!-- FOOTER code -->
+<% include templates/footer.ejs %>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!-- Script references -->
+<% include templates/javascript-refs.ejs %>
+
+<script type="text/javascript">
+
+  $(function() {
+    $("#login-navbar-item").addClass("active");
+  });
+
+</script>
+
+</body>
+
+</html>

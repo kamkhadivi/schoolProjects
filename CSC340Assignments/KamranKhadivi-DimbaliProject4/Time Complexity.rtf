@@ -1,0 +1,67 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red38\green38\blue38;\red255\green255\blue255;}
+\margl1440\margr1440\vieww14300\viewh13520\viewkind0
+\deftab720
+\pard\pardeftab720\sa200
+
+\f0\b\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Q1.\'a0
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \
+double sum_triples(double array[], int n) \{     //n: size of the array. Assume n is divisible by 3\
+\'a0 double sum=0;		// Runs 1 time	\
+\'a0 for (int i=0; i<n; i=i+3)	  // (n/3+1) times	\
+\'a0 \'a0 sum = sum + array[ i ]; \'a0//(n/3) times\
+\'a0 return sum; 		// Runs 1 time\
+\} 	// O(n)\
+\
+
+\b \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 Q2.
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \
+double sum_exponentials(int n)\{ \'a0 \'a0 \'a0 \'a0//n is a power of 3, i.e., n=3^k or k=log n base 3\
+int sum=0; 		// Runs 1 time\
+for (int i=1; i<n; i=i*3)\'a0 // Runs loglog(n) times (base 3)\
+\'a0 \'a0 \'a0 sum = sum + i;     // Runs loglog(n) -1 times\
+return sum; 	// Runs 1 time\
+\}	// O(loglogn)\
+\
+
+\b \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 Q3.
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \
+for (int i=0; i<n; i++) \{ 		// Runs (n+1) times\
+\'a0 \'a0 for (int j=n; j>=i; j--)		// Runs n*(n+1)/2 times\
+\'a0 \'a0 \'a0 \'a0 \'a0cout << i << \'93,\'94 << j <<endl;  // Runs n*(n+1) - n times\
+\'a0\}	// O(n^2)\
+\
+
+\b \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 Q4.
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \
+for (int i=0; i<n; i++) \{ //assume n is divisible by 2 => n = 2*k\'a0\
+\'a0 for (j=n/2; j>i; j--)  	// Runs n*(n/2 - i) times\
+\'a0 \'a0 \'a0 \'a0sum = i+j;		// Runs n*(n/2) times\
+\} 	// O(n^2)\
+\
+
+\b \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 Q5.
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \
+//matrix multiplication of A[m][n] and B[n][p]. The product is saved into C[m][p].\
+void mult_matricies( double A[][n], double B[][p], double C[][p], int m, int n , int p )\{\
+for (int i=0; i<m; i++) \{ 		// Runs m+1 times\
+\'a0 \'a0 for (int j=0; j<p; j++)\{  	// Runs (m+1)(p +1) times\
+\'a0 \'a0 \'a0 \'a0 \'a0 C[i][j] = 0;			// Runs p*(m+1) times\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0for ( int k=0; k<n; k++) \{	// Runs p*(m+1)(n+1) times\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0C[i][j] += A[i][k] * B[k][j];  // Runs p*(m+1)*n times \
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \}//for-k\
+\'a0 \'a0 \'a0\}//for-j\
+\}//for-i\
+\}	// O(n)\
+}

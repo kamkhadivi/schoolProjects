@@ -1,0 +1,67 @@
+<!--
+    VIEW: index.ejs
+    Landing page for the entire website. Introduces new users to the functionality and purpose of our website.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/images/logos/logo-black.png">
+
+    <title><%= title %></title>
+
+
+    <!-- Stylesheets -->
+    <% include templates/stylesheet-refs.ejs %>
+
+    <!-- Google Analytics snippet -->
+    <% include templates/google-analytics.ejs %>
+</head>
+
+<body>
+
+
+<header>
+    <!--  BEGIN NAVIGATION BAR -->
+  <% include templates/navigation.ejs %>
+    <!-- END OF NAVIGATION BAR -->
+</header>
+
+<main role="main">
+
+    <% if(!locals.isLogged) { %>
+    <!-- Welcome message -->
+        <% include templates/welcome_message.ejs %>
+    <% } %>
+
+    <div class="container">
+        <!-- begin container -->
+        <% include templates/search_bar_template.ejs %>
+
+        <!-- Showing # out of # snippet -->
+        <p style="color: white">Showing <b><%=data.length%></b> out of <b><%=data.length%></b> results</p>
+
+        <!-- results of the most recent query -->
+        <% include templates/results.ejs %>
+
+            <!-- End container -->
+    </div>
+
+</main>
+
+<!-- FOOTER code -->
+<% include templates/footer.ejs %>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!-- Script references -->
+<% include templates/javascript-refs.ejs %>
+
+
+</body>
+</html>
